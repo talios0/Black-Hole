@@ -42,6 +42,11 @@ public class SpaceResources : MonoBehaviour
     public Material[] probeMats;
     public Vector2 probeMass;
 
+    private bool selectingObjects;
+    private Gravity[] objects;
+
+    private Dictionary<Gravity> assignedObjects;
+
     void Start()
     {
         for (int i = 0; i < buttons.Length; i++)
@@ -58,10 +63,13 @@ public class SpaceResources : MonoBehaviour
         ppmText.SetText(ppm.ToString());
         for (int i = 0; i < cost.Length; i++)
         {
-            if (cost[i] <= points && !buttons[i].interactable)
+            if (cost[i] <= points && !buttons[i].interactable && !CellestialManager.movingObj && !selectingObjects)
                 buttons[i].interactable = true;
-            else if (cost[i] > points && buttons[i].interactable)
+            else if ((cost[i] > points && buttons[i].interactable) || CellestialManager.movingObj || selectingObjects)
                 buttons[i].interactable = false;
+        }
+        if (selectingObjects) {
+            SelectObjects();
         }
     }
 
@@ -117,7 +125,17 @@ public class SpaceResources : MonoBehaviour
 
     private void Moon()
     {
+        Material mat = moonMats[Random.Range(0, planetMats.Length)];
+        float size = Random.Range(moonSize.x, moonSize.y);
+        float mass = Random.Range(moonMass.x, moonMass.y);
 
+        GameObject obj = Instantiate(baseMoon);
+        obj.GetComponent<ObjectPlacement>().SetMovable(true);
+        obj.GetComponent<SphereCollider>().isTrigger = true;
+        obj.GetComponent<Gravity>().enabled = false;
+        obj.GetComponent<MeshRenderer>().material = mat;
+        obj.transform.localScale = new Vector3(size, size, size);
+        obj.GetComponent<Rigidbody>().mass = mass;
     }
 
     private void MeteorShower()
@@ -127,12 +145,32 @@ public class SpaceResources : MonoBehaviour
 
     private void GravitationManipulator()
     {
-
+        selectingObjects = true;
+        objects = new Gravity[2];
     }
 
     private void MiningProbe()
     {
 
+    }
+
+    private void SelectObjects() {
+        // Overlay
+    }
+
+
+    public void ObjectSelected(Gravity g) {
+        if (selectingObjects) {
+            if (objects[0] == null)
+                objects[0] = g;
+            else if (objects[1] == null && objects[0] != g)
+            {
+                objects[1] = g;
+                selectingObjects = false;
+                objects[0].SetManipulate(objects[1], gravityModifier);
+                //objects[1].SetManipulate(objects[0], gravityModifier);
+            }
+        }
     }
 
 

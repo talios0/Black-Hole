@@ -13,11 +13,19 @@ public class Gravity : MonoBehaviour
     //private static List<Gravity> masses;
     private Rigidbody rb;
     private Gravity sun;
+    private static SpaceResources resourceManager;
     private float mass;
     private bool waitingForSun = false;
 
+    private Gravity manipulate;
+    private float manipulateGravity;
+    private bool gravityManipulation = false;
+
     void Start()
     {
+        if (resourceManager == null)
+            resourceManager = GameObject.Find("ResourceManager").GetComponent<SpaceResources>();
+
         if (CellestialManager.masses == null)
             CellestialManager.masses = new List<Gravity>();
 
@@ -70,7 +78,6 @@ public class Gravity : MonoBehaviour
         if (isSun)
             return;
 
-        Debug.Log(gameObject.name);
         transform.LookAt(sun.transform);
 
         float velocity = Mathf.Pow((gravitationalConstant * sun.mass) / Vector3.Distance(transform.position, sun.transform.position), 0.5f);
@@ -135,12 +142,24 @@ public class Gravity : MonoBehaviour
         {
             if (g != this)
             {
-                float force = (gravitationalConstant * mass * g.mass) / (Mathf.Pow(Vector3.Distance(transform.position, g.transform.position), 2));
+                float multiplier = 1;
+                if (g == manipulate && gravityManipulation) {
+                    multiplier = manipulateGravity;
+                    Debug.Log("MANIPULATING, " + multiplier);
+                }
+
+                float force = (gravitationalConstant * multiplier * mass * g.mass) / (Mathf.Pow(Vector3.Distance(transform.position, g.transform.position), 2));
 
                 Vector3 direction = new Vector3(transform.position.x - g.transform.position.x, 0, transform.position.z - g.transform.position.z).normalized;
                 rb.AddForce(force * -direction);
             }
         }
+    }
+
+    public void SetManipulate(Gravity g, float gravityModifier) {
+        manipulate = g;
+        manipulateGravity = gravityModifier;
+        gravityManipulation = true;
     }
 
     public float GetMass()
@@ -161,5 +180,11 @@ public class Gravity : MonoBehaviour
     void OnDisable()
     {
         CellestialManager.masses.Remove(this);
+    }
+
+    void OnMouseOver() {
+        if (Input.GetAxisRaw("Place") != 0) {
+            resourceManager.ObjectSelected(this);
+        }
     }
 }

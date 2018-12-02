@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5325421091911898013}
   - component: {fileID: 5325421091911898012}
   - component: {fileID: 5325421091911898014}
+  - component: {fileID: 5325421091911898015}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -95,7 +96,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5325421091911898012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,9 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d3d1f9e79c55847b0ba17ad6e11ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startForce: 15
-  useStartForce: 1
   isSun: 0
+  isMoon: 0
+  linkedPlanet: {fileID: 0}
 --- !u!135 &5325421091911898014
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -124,3 +125,15 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.01
   m_Center: {x: -4.656613e-10, y: 0.00000002561137, z: 0}
+--- !u!114 &5325421091911898015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181835195642283928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a881f30e995c10469b9dc0601a31e33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
