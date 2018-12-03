@@ -19,7 +19,7 @@ public class ObjectPlacement : MonoBehaviour
     private Vector2 trajectoryForce = new Vector2(0,500);
     private float maxTrajectoryForce = 7000;
 
-    public GameObject place;
+    public bool isMeteor;
 
     void Start() {
         g = GetComponent<Gravity>();
@@ -58,9 +58,19 @@ public class ObjectPlacement : MonoBehaviour
             CellestialManager.movingObj = true;
             try
             {
-                //col.enabled = false;
-                col.isTrigger = true;
-                g.enabled = false;
+                if (isMeteor)
+                {
+                    foreach (Transform c in transform) {
+                        c.GetComponent<SphereCollider>().isTrigger = true;
+                        c.GetComponent<Gravity>().enabled = false;
+                    }
+                }
+                else
+                {
+                    //col.enabled = false;
+                    col.isTrigger = true;
+                    g.enabled = false;
+                }
             }
             catch {
                 Debug.LogWarning("Unity execution order error");
@@ -68,11 +78,20 @@ public class ObjectPlacement : MonoBehaviour
         }
         else {
             CellestialManager.movingObj = false;
-            col.isTrigger = false;
-            g.enabled = true;
+            if (isMeteor)
+            {
+                foreach (Transform c in transform)
+                {
+                    c.GetComponent<SphereCollider>().isTrigger = false;
+                    c.GetComponent<Gravity>().enabled = true;
+                }
+            }
+            else
+            {
+                col.isTrigger = false;
+                g.enabled = true;
+            }
         }
-
-
     }
 
 
@@ -82,10 +101,7 @@ public class ObjectPlacement : MonoBehaviour
         {
             trajectory = false;
             finalMousePos = CellestialManager.GetMousePos();
-            Vector3 direction = (finalMousePos - initMousePos);
             float distance = Vector3.Distance(finalMousePos, initMousePos);
-            Debug.Log(distance);
-            Debug.Log(distance / maxTrajectory);
             if (distance / maxTrajectory >= 1)
             {
                 distance = maxTrajectory;
@@ -93,10 +109,7 @@ public class ObjectPlacement : MonoBehaviour
             SetMovable(false);
             transform.LookAt(initMousePos);
             rb.AddForce(transform.forward * (distance / maxTrajectory) * maxTrajectoryForce, ForceMode.Acceleration);
-            //Debug.Log(transform.forward * (distance / maxTrajectory) * trajectoryForce * GetComponent<Rigidbody>().mass);
-            //Debug.Log("VELOCITY: " + rb.velocity);
-            //Debug.Log("FORCE: " + transform.forward * (distance / maxTrajectory) * maxTrajectoryForce * rb.mass);
-        }
+            }
     }
 
     void OnTriggerEnter()

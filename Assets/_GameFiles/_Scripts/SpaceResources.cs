@@ -140,6 +140,8 @@ public class SpaceResources : MonoBehaviour
 
     private void MeteorShower()
     {
+        GameObject obj = Instantiate(baseMeteor);
+
         //TRAJECTORY
     }
 
