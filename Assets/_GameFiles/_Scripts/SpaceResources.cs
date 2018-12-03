@@ -32,8 +32,6 @@ public class SpaceResources : MonoBehaviour
     [Header("Meteors")]
     public GameObject baseMeteor;
     public Material[] meteorMats;
-    public Vector2 meteors;
-    public Vector2 meteorMass;
 
     [Header("Gravity Manipulator")]
     public int gravityModifier;
@@ -141,7 +139,7 @@ public class SpaceResources : MonoBehaviour
 
     private void MeteorShower()
     {
-
+        //TRAJECTORY
     }
 
     private void GravitationManipulator()

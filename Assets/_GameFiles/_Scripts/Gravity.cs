@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Gravity : MonoBehaviour
 {
-    public static float gravitationalConstant = 0.05f;
+    public static float gravitationalConstant = 0.005f;
     public bool isSun;
     public bool isMoon;
     public Gravity linkedPlanet;
@@ -145,7 +145,7 @@ public class Gravity : MonoBehaviour
                 float multiplier = 1;
                 if (g == manipulate && gravityManipulation) {
                     multiplier = manipulateGravity;
-                    Debug.Log("MANIPULATING, " + multiplier);
+                    //Debug.Log("MANIPULATING, " + multiplier);
                 }
 
                 float force = (gravitationalConstant * multiplier * mass * g.mass) / (Mathf.Pow(Vector3.Distance(transform.position, g.transform.position), 2));

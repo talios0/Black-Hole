@@ -1026,21 +1026,30 @@ PrefabInstance:
       propertyPath: linkedPlanet
       value: 
       objectReference: {fileID: 5325421091911898012}
+    - target: {fileID: 6617221442101231052, guid: fcf27cc966115d746960164e950b9044,
+        type: 3}
+      propertyPath: m_Mass
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617221442101231055, guid: fcf27cc966115d746960164e950b9044,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617221442101231055, guid: fcf27cc966115d746960164e950b9044,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcf27cc966115d746960164e950b9044, type: 3}
---- !u!1 &5325421091911898011 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6181835195642283928, guid: c134fee08fe69b24988901978b95c2a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 2030551819554132995}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5325421091911898012 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5325421091911898012, guid: c134fee08fe69b24988901978b95c2a4,
     type: 3}
   m_PrefabInstance: {fileID: 2030551819554132995}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5325421091911898011}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95d3d1f9e79c55847b0ba17ad6e11ea9, type: 3}
@@ -1093,21 +1102,6 @@ PrefabInstance:
       propertyPath: buttons.Array.data[4]
       value: 
       objectReference: {fileID: 1962388142}
-    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
-        type: 3}
-      propertyPath: basePlanet
-      value: 
-      objectReference: {fileID: 5325421091911898011}
-    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
-        type: 3}
-      propertyPath: ppm
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
-        type: 3}
-      propertyPath: gravityModifier
-      value: 100000
-      objectReference: {fileID: 0}
     - target: {fileID: 8415069999437407465, guid: 21e6751b7955a424a9dad893481df30c,
         type: 3}
       propertyPath: m_LocalPosition.x

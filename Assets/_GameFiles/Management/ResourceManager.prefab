@@ -53,21 +53,22 @@ MonoBehaviour:
   - Meteors
   - Gravity Manipulator
   - Mining Probe
-  cost: 0a00000014000000190000003200000046000000
+  cost: 0a00000014000000280000003200000046000000
   buttons:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  basePlanet: {fileID: 0}
+  basePlanet: {fileID: 6181835195642283928, guid: c134fee08fe69b24988901978b95c2a4,
+    type: 3}
   planetMats:
   - {fileID: 2100000, guid: 73931a016dd855f44b047148fd895ca8, type: 2}
   - {fileID: 2100000, guid: e1e132f6610a0c5498f8235bcdb2b2c5, type: 2}
   - {fileID: 2100000, guid: 7e92ab818d67981489a3d68364ba3809, type: 2}
   - {fileID: 2100000, guid: 7961851bfb70f41428bb50ffcdacf87c, type: 2}
   planetSize: {x: 250, y: 750}
-  planetMass: {x: 50, y: 150}
+  planetMass: {x: 50, y: 250}
   baseMoon: {fileID: 5186158615572425161, guid: fcf27cc966115d746960164e950b9044,
     type: 3}
   moonMats:
@@ -77,11 +78,10 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ae27beb2ebf0ff04a9850d05bd13ff6b, type: 2}
   - {fileID: 2100000, guid: ae750e02e3e01d7468a2fd9a9d49fe95, type: 2}
   moonSize: {x: 30, y: 100}
-  moonMass: {x: 0.8, y: 10}
-  baseMeteor: {fileID: 0}
+  moonMass: {x: 35, y: 50}
+  baseMeteor: {fileID: 6715676289799274173, guid: 3d87f24fcca2bac4d9bdd5560d28a84b,
+    type: 3}
   meteorMats: []
-  meteors: {x: 0, y: 0}
-  meteorMass: {x: 0, y: 0}
   gravityModifier: 0
   baseProbe: {fileID: 0}
   probeMats: []
