@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class SpaceResources : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class SpaceResources : MonoBehaviour
     private bool selectingObjects;
     private Gravity[] objects;
 
-    private Dictionary<Gravity> assignedObjects;
+    private Dictionary<Gravity, Gravity> assignedObjects;
 
     void Start()
     {
