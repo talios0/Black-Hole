@@ -9,17 +9,22 @@ public class ObjectPlacement : MonoBehaviour
 
     private Gravity g;
     private SphereCollider col;
+    private Rigidbody rb;
 
     private bool inCollision;
     private bool trajectory = false;
     private Vector3 initMousePos;
     private Vector3 finalMousePos;
-    public int maxTrajectory = 5;
-    public Vector2 trajectoryForce = new Vector2(100,1000);
+    private int maxTrajectory = 125;
+    private Vector2 trajectoryForce = new Vector2(0,500);
+    private float maxTrajectoryForce = 7000;
+
+    public GameObject place;
 
     void Start() {
         g = GetComponent<Gravity>();
         col = GetComponent<SphereCollider>();
+        rb = GetComponent<Rigidbody>();
         inCollision = false;
     }
 
@@ -72,22 +77,25 @@ public class ObjectPlacement : MonoBehaviour
 
 
     private void Trajectory() {
-        if (Input.GetAxisRaw("Place") == 0) {
+        Debug.DrawRay(initMousePos, CellestialManager.GetMousePos());
+        if (Input.GetAxisRaw("Place") == 0)
+        {
             trajectory = false;
             finalMousePos = CellestialManager.GetMousePos();
             Vector3 direction = (finalMousePos - initMousePos);
             float distance = Vector3.Distance(finalMousePos, initMousePos);
+            Debug.Log(distance);
             Debug.Log(distance / maxTrajectory);
-            if (distance/maxTrajectory >= 1) {
+            if (distance / maxTrajectory >= 1)
+            {
                 distance = maxTrajectory;
             }
-
             SetMovable(false);
             transform.LookAt(initMousePos);
-            GetComponent<Rigidbody>().AddForce(transform.forward * (distance/maxTrajectory) * trajectoryForce * GetComponent<Rigidbody>().mass);
+            rb.AddForce(transform.forward * (distance / maxTrajectory) * maxTrajectoryForce, ForceMode.Acceleration);
             //Debug.Log(transform.forward * (distance / maxTrajectory) * trajectoryForce * GetComponent<Rigidbody>().mass);
-            Debug.Log(GetComponent<Rigidbody>().velocity);
-            
+            //Debug.Log("VELOCITY: " + rb.velocity);
+            //Debug.Log("FORCE: " + transform.forward * (distance / maxTrajectory) * maxTrajectoryForce * rb.mass);
         }
     }
 

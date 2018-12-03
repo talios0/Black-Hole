@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Gravity : MonoBehaviour
 {
-    public static float gravitationalConstant = 0.005f;
+    public static float gravitationalConstant = 0.025f;
     public bool isSun;
     public bool isMoon;
     public Gravity linkedPlanet;
@@ -156,6 +156,7 @@ public class Gravity : MonoBehaviour
 
                 Vector3 direction = new Vector3(transform.position.x - g.transform.position.x, 0, transform.position.z - g.transform.position.z).normalized;
                 rb.AddForce(force * -direction);
+                
             }
         }
     }

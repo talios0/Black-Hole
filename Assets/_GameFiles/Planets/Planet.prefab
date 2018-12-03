@@ -139,4 +139,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxTrajectory: 100
-  trajectoryForce: {x: 10, y: 100}
+  trajectoryForce: {x: 1000, y: 2000}
