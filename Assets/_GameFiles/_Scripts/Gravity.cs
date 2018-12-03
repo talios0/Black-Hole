@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Gravity : MonoBehaviour
 {
-    public static float gravitationalConstant = 0.025f;
+    public static float gravitationalConstant = 0.05f;
     public bool isSun;
     public bool isMoon;
     public Gravity linkedPlanet;
@@ -175,11 +175,6 @@ public class Gravity : MonoBehaviour
     public bool IsSun()
     {
         return isSun;
-    }
-
-    void OnDrawGizmos()
-    {
-        Handles.DrawWireDisc(sun.transform.position, Vector3.up, Vector3.Distance(transform.position, sun.transform.position));
     }
 
     void OnDisable()

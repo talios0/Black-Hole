@@ -17,7 +17,8 @@ public class ObjectPlacement : MonoBehaviour
     private Vector3 finalMousePos;
     private int maxTrajectory = 125;
     private Vector2 trajectoryForce = new Vector2(0,500);
-    private float maxTrajectoryForce = 7000;
+    private float maxTrajectoryForce = 5000;
+    private float maxMeteorForce = 7000;
 
     public bool isMeteor;
 
@@ -97,6 +98,7 @@ public class ObjectPlacement : MonoBehaviour
 
     private void Trajectory() {
         Debug.DrawRay(initMousePos, CellestialManager.GetMousePos());
+        transform.LookAt(initMousePos);
         if (Input.GetAxisRaw("Place") == 0)
         {
             trajectory = false;
@@ -107,9 +109,17 @@ public class ObjectPlacement : MonoBehaviour
                 distance = maxTrajectory;
             }
             SetMovable(false);
-            transform.LookAt(initMousePos);
-            rb.AddForce(transform.forward * (distance / maxTrajectory) * maxTrajectoryForce, ForceMode.Acceleration);
+            if (isMeteor)
+            {
+                foreach (Transform c in transform)
+                {
+                    c.GetComponent<Rigidbody>().AddForce(transform.forward * (distance / maxTrajectory) * maxTrajectoryForce, ForceMode.Acceleration);
+                }
             }
+            else {
+                rb.AddForce(transform.forward * (distance / maxTrajectory) * maxMeteorForce, ForceMode.Acceleration);
+            }
+        }
     }
 
     void OnTriggerEnter()

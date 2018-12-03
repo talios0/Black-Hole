@@ -1160,6 +1160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
         type: 3}
+      propertyPath: meteorMats.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
       propertyPath: pointsText
       value: 
       objectReference: {fileID: 464060488}
@@ -1213,6 +1218,46 @@ PrefabInstance:
       propertyPath: moonMass.y
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d3c384896dbb28f4aaf85bea5900de18, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f87d59c81cface8439dd7eeb1df8298b, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 556c2fb99fb15824e930ea2392e3d700, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[3]
+      value: 
+      objectReference: {fileID: 2100000, guid: f3d73ce4b38c4554e854aa9801aa4cdd, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[4]
+      value: 
+      objectReference: {fileID: 2100000, guid: d6dfa67e82d20e64a84f8097f975c002, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb8834b2fad5e7b42b886549f99d8ce7, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[6]
+      value: 
+      objectReference: {fileID: 2100000, guid: 38537485e5e46ff4183f9c105437c148, type: 2}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: meteorMats.Array.data[7]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0eb6e786c8476b64ebdc9bdb4ba4d8c7, type: 2}
     - target: {fileID: 8415069999437407465, guid: 21e6751b7955a424a9dad893481df30c,
         type: 3}
       propertyPath: m_LocalPosition.x

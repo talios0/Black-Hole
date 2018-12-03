@@ -141,8 +141,10 @@ public class SpaceResources : MonoBehaviour
     private void MeteorShower()
     {
         GameObject obj = Instantiate(baseMeteor);
-
-        //TRAJECTORY
+        foreach (Transform c in obj.transform) {
+            c.GetComponent<MeshRenderer>().material = moonMats[Random.Range(0, moonMats.Length)];
+        }
+        obj.GetComponent<ObjectPlacement>().SetMovable(true);
     }
 
     private void GravitationManipulator()
