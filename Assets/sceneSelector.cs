@@ -5,9 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class sceneSelector : MonoBehaviour
 {
-    public int sceneID;
-    public void LoadScene(string name)
+
+    public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene(sceneName);
+    }
+     void FixedUpdate()
+    {
+        if(Input.GetKey(KeyCode.Escape)){
+            Application.Quit();
+        }
     }
 }
