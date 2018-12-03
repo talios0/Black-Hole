@@ -43,6 +43,7 @@ public class SpaceResources : MonoBehaviour
 
     private bool selectingObjects;
     private Gravity[] objects;
+    private bool trajectory;
 
     private Dictionary<Gravity, Gravity> assignedObjects;
 
@@ -157,6 +158,10 @@ public class SpaceResources : MonoBehaviour
         // Overlay
     }
 
+
+    public void Trajectory() {
+
+    }
 
     public void ObjectSelected(Gravity g) {
         if (selectingObjects) {

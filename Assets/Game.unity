@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00006361189, g: 0.00006361189, b: 0.00006361189,
+  m_IndirectSpecularColor: {r: 0.00006416509, g: 0.00006416509, b: 0.00006416509,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -940,6 +940,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5325421091911898012, guid: c134fee08fe69b24988901978b95c2a4,
+        type: 3}
+      propertyPath: useStartForce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c134fee08fe69b24988901978b95c2a4, type: 3}
 --- !u!114 &3228872580218178307 stripped
@@ -1026,6 +1031,11 @@ PrefabInstance:
       propertyPath: linkedPlanet
       value: 
       objectReference: {fileID: 5325421091911898012}
+    - target: {fileID: 6617221442101231053, guid: fcf27cc966115d746960164e950b9044,
+        type: 3}
+      propertyPath: useStartForce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6617221442101231052, guid: fcf27cc966115d746960164e950b9044,
         type: 3}
       propertyPath: m_Mass
@@ -1040,6 +1050,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91833734, guid: fcf27cc966115d746960164e950b9044, type: 3}
+      propertyPath: trajectoryForce.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 91833734, guid: fcf27cc966115d746960164e950b9044, type: 3}
+      propertyPath: trajectoryForce.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 91833734, guid: fcf27cc966115d746960164e950b9044, type: 3}
+      propertyPath: maxTrajectory
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcf27cc966115d746960164e950b9044, type: 3}
@@ -1102,6 +1124,11 @@ PrefabInstance:
       propertyPath: buttons.Array.data[4]
       value: 
       objectReference: {fileID: 1962388142}
+    - target: {fileID: 3228872580218178307, guid: 21e6751b7955a424a9dad893481df30c,
+        type: 3}
+      propertyPath: gravityModifier
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 8415069999437407465, guid: 21e6751b7955a424a9dad893481df30c,
         type: 3}
       propertyPath: m_LocalPosition.x

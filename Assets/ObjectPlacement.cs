@@ -11,6 +11,11 @@ public class ObjectPlacement : MonoBehaviour
     private SphereCollider col;
 
     private bool inCollision;
+    private bool trajectory = false;
+    private Vector3 initMousePos;
+    private Vector3 finalMousePos;
+    public int maxTrajectory = 5;
+    public Vector2 trajectoryForce = new Vector2(100,1000);
 
     void Start() {
         g = GetComponent<Gravity>();
@@ -23,18 +28,21 @@ public class ObjectPlacement : MonoBehaviour
             return;
         FollowMouse();
         CheckInput();
+        if (trajectory) {
+            Trajectory();
+        }
     }
 
     private void FollowMouse() {
         //transform.position = new Vector3(Input.mousePosition.x, 0, Input.mousePosition.y);
-        Vector3 pos = Input.mousePosition;
-        pos.z = Camera.main.transform.position.y;
-        transform.position = Camera.main.ScreenToWorldPoint(pos);
+        transform.position = CellestialManager.GetMousePos();
     }
 
     private void CheckInput() {
-        if (Input.GetAxisRaw("Place") != 0 && !inCollision) {
-            SetMovable(false);
+        if (Input.GetAxisRaw("Place") != 0 && !inCollision && !trajectory) {
+
+            initMousePos = CellestialManager.GetMousePos();
+            trajectory = true;
         }
     }
 
@@ -60,6 +68,27 @@ public class ObjectPlacement : MonoBehaviour
         }
 
 
+    }
+
+
+    private void Trajectory() {
+        if (Input.GetAxisRaw("Place") == 0) {
+            trajectory = false;
+            finalMousePos = CellestialManager.GetMousePos();
+            Vector3 direction = (finalMousePos - initMousePos);
+            float distance = Vector3.Distance(finalMousePos, initMousePos);
+            Debug.Log(distance / maxTrajectory);
+            if (distance/maxTrajectory >= 1) {
+                distance = maxTrajectory;
+            }
+
+            SetMovable(false);
+            transform.LookAt(initMousePos);
+            GetComponent<Rigidbody>().AddForce(transform.forward * (distance/maxTrajectory) * trajectoryForce * GetComponent<Rigidbody>().mass);
+            //Debug.Log(transform.forward * (distance / maxTrajectory) * trajectoryForce * GetComponent<Rigidbody>().mass);
+            Debug.Log(GetComponent<Rigidbody>().velocity);
+            
+        }
     }
 
     void OnTriggerEnter()

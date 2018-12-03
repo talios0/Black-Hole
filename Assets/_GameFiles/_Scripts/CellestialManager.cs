@@ -16,4 +16,11 @@ public class CellestialManager : MonoBehaviour
         }
     }
 
+    public static Vector3 GetMousePos() {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.transform.position.y;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        return mousePos;
+    }
+
 }

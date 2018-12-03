@@ -112,6 +112,7 @@ MonoBehaviour:
   isSun: 0
   isMoon: 0
   linkedPlanet: {fileID: 0}
+  useStartForce: 0
 --- !u!135 &5325421091911898014
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -137,3 +138,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a881f30e995c10469b9dc0601a31e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTrajectory: 100
+  trajectoryForce: {x: 10, y: 100}

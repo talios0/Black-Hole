@@ -21,6 +21,8 @@ public class Gravity : MonoBehaviour
     private float manipulateGravity;
     private bool gravityManipulation = false;
 
+    public bool useStartForce;
+
     void Start()
     {
         if (resourceManager == null)
@@ -75,17 +77,19 @@ public class Gravity : MonoBehaviour
 
     private void InitialForce()
     {
-        if (isSun)
-            return;
+        if (useStartForce)
+        {
+            if (isSun)
+                return;
 
-        transform.LookAt(sun.transform);
+            transform.LookAt(sun.transform);
 
-        float velocity = Mathf.Pow((gravitationalConstant * sun.mass) / Vector3.Distance(transform.position, sun.transform.position), 0.5f);
+            float velocity = Mathf.Pow((gravitationalConstant * sun.mass) / Vector3.Distance(transform.position, sun.transform.position), 0.5f);
 
-        Vector3 perpendicular = -transform.right;
-        Vector3 direction = new Vector3(transform.position.x - sun.transform.position.x, 0, transform.position.z - sun.transform.position.z).normalized;
-        rb.velocity += velocity * perpendicular;
-
+            Vector3 perpendicular = -transform.right;
+            Vector3 direction = new Vector3(transform.position.x - sun.transform.position.x, 0, transform.position.z - sun.transform.position.z).normalized;
+            rb.velocity += velocity * perpendicular;
+        }
         /*foreach (Gravity g in CellestialManager.masses)
         {
             if (g != this)
