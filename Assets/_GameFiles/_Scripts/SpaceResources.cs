@@ -10,7 +10,7 @@ public class SpaceResources : MonoBehaviour
     public TextMeshProUGUI ppmText;
 
     public int points;
-    public int ppm;
+    public static int ppm = 2;
 
     [Header("Resource Settings")]
     public string[] resourceName;

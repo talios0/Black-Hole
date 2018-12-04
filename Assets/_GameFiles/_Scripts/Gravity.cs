@@ -161,10 +161,15 @@ public class Gravity : MonoBehaviour
         }
     }
 
-    public void SetManipulate(Gravity g, float gravityModifier) {
+    public void SetManipulate(Gravity g, float gravityModifier)
+    {
         manipulate = g;
         manipulateGravity = gravityModifier;
         gravityManipulation = true;
+    }
+
+    public void AddMass(float mass) {
+        this.mass += mass;
     }
 
     public float GetMass()

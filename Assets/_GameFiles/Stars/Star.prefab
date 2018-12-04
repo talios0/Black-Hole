@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e6bcb56b5afaf9e4b9909b30e74e7e42, type: 2}
+  - {fileID: 2100000, guid: 7f40b935dc8c13a41a1e7419e635692d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   isSun: 1
   isMoon: 0
   linkedPlanet: {fileID: 0}
+  useStartForce: 0
 --- !u!135 &2629666470457926333
 SphereCollider:
   m_ObjectHideFlags: 0
