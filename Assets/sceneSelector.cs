@@ -10,10 +10,8 @@ public class sceneSelector : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-     void FixedUpdate()
+     public void quit()
     {
-        if(Input.GetKey(KeyCode.Escape)){
-            Application.Quit();
-        }
+        Application.Quit();
     }
 }
